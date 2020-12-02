@@ -1,0 +1,72 @@
+baseURL = "https://thmwwtm.github.io/"
+title = "The hungarian man who went to Malta"
+paginate = 5
+theme = "hugo-PaperMod"
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+googleAnalytics = ""
+
+[minify]
+disableXML = true
+minifyOutput = true
+
+[params]
+env = "production"
+title = "The hungarian man who went to Malta"
+description = "Thoughts about relocation, software development and whatever"
+author = "Me"
+# images = "<link or path of image for opengraph, twitter-cards>"
+ShowReadingTime = true
+ShowShareButtons = true
+comments = false
+defaultTheme = "auto"
+disableThemeToggle = false
+disableSpecial1stPost = false
+
+  # [params.assets]
+  # favicon = "<link / abs url>"
+  # favicon16x16 = "<link / abs url>"
+  # favicon32x32 = "<link / abs url>"
+  # apple_touch_icon = "<link / abs url>"
+  # safari_pinned_tab = "<link / abs url>"
+
+  [params.label]
+  text = "Thmwwtm"
+  iconHeight = 35
+
+  [params.profileMode]
+  enabled = true
+  title = "The hungarian man who went to Malta"
+
+    [[params.profileMode.buttons]]
+    name = "Posts"
+    url = "posts"
+
+    [[params.profileMode.buttons]]
+    name = "Tags"
+    url = "tags"
+
+  [params.homeInfoParams]
+  Title = "Hi there 👋"
+  Content = "The hungarian man who went to Malta"
+
+  # [[params.socialIcons]]
+  # name = "twitter"
+  # url = "https://twitter.com/"
+
+  # [[params.socialIcons]]
+  # name = "stackoverflow"
+  # url = "https://stackoverflow.com"
+
+  [[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/thmwwtm/thmwwtm.github.io"
+
+  [[params.socialIcons]]
+  name = "instagram"
+  url = "http://highchanceiwilladdthislater"
+
+[params.analytics.google]
+SiteVerificationTag = ""
