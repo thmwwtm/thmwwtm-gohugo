@@ -28,5 +28,6 @@ git commit -m "$msg"
 git push origin main
 
 # reset config values
+printf "\033[0;32mReset config...\033[0m\n"
 cd ..
 sed -i 's/'"$thmwwtm_googleanalitycs"'/thmwwtm_googleanalitycs/g' config.toml
