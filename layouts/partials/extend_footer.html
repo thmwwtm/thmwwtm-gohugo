@@ -1,0 +1,3 @@
+{{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") }}
+{{ partial "cookie-banner.html" }}
+{{ end }}

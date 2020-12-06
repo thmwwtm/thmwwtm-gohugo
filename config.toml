@@ -8,6 +8,13 @@ buildFuture = false
 buildExpired = false
 googleAnalytics = "thmwwtm_googleanalitycs"
 
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = false
+    disable = false
+    respectDoNotTrack = true
+    useSessionStorage = true
+
 [minify]
 disableXML = true
 minifyOutput = true
