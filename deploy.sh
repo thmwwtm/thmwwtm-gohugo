@@ -3,8 +3,11 @@
 # If a command fails then the deploy stops
 set -e
 
+printf "\033[0;32mReplacing config values...\033[0m\n"
+
 # adding values to config from env
-sed -i 's/thmwwtm_googleanalitycs/'"$thmwwtm_googleanalitycs"'/g' config.toml
+sed -i 's/thmwwtm_googleanalitycs/'"$thmwwtm_googleanalitycs"'/g' config.toml 
+#&& sed -i 's/thmwwtm_instagram/'"$thmwwtm_instagram"'/g' config.toml
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
@@ -31,3 +34,4 @@ git push origin main
 printf "\033[0;32mReset config...\033[0m\n"
 cd ..
 sed -i 's/'"$thmwwtm_googleanalitycs"'/thmwwtm_googleanalitycs/g' config.toml
+#sed -i 's/'"$thmwwtm_instagram"'/thmwwtm_instagram/g' config.toml

@@ -73,7 +73,7 @@ disableSpecial1stPost = false
 
   [[params.socialIcons]]
   name = "instagram"
-  url = "http://thmwwtm_instagram"
+  url = "https://thmwwtm_instagram"
 
 [params.analytics.google]
 SiteVerificationTag = ""
