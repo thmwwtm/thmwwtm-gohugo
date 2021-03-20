@@ -53,8 +53,8 @@ jobs:
 
       - name: Update public and publish
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config --global user.name github-actions[bot]
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
           msg=$(git log -1 --pretty=%B)
           echo $msg
           cd public
