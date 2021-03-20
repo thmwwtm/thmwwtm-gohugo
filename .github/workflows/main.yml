@@ -35,7 +35,6 @@ jobs:
       - name: Update config
         env:
           GA_ID: ${{ secrets.THMWWTM_ANALYTICS_ID }}
-          INSTA_URL: ${{ secrets.THMWWTM_INSTAGRAM }}
         run: |
           printf "\033[0;32mReplacing config values...\033[0m\n"
           sed -i 's/#{%ANALYTICS_ID%}#/'"$GA_ID"'/g' config.toml 
