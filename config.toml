@@ -6,7 +6,7 @@ enableRobotsTXT = true
 buildDrafts = false
 buildFuture = false
 buildExpired = false
-googleAnalytics = "thmwwtm_googleanalitycs"
+googleAnalytics = "#{%ANALYTICS_ID%}#"
 
 [privacy]
   [privacy.googleAnalytics]
@@ -73,7 +73,7 @@ disableSpecial1stPost = false
 
   [[params.socialIcons]]
   name = "instagram"
-  url = "https://thmwwtm_instagram"
+  url = "https://www.instagram.com/thmwwtm/"
   
   [[params.socialIcons]]
   name = "rss"
