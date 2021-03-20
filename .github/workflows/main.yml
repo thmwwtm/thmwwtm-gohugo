@@ -29,11 +29,7 @@ jobs:
 
       # Get theme, old output
       - name: Get submodules
-        run: |
-          git submodule update --init --recursive
-          cd public
-          git pull origin master
-          cd ..
+        run: git submodule update --init --recursive
 
       # Update secrets
       - name: Update config
