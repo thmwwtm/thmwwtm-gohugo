@@ -2,3 +2,6 @@
 	path = public
 	url = https://github.com/thmwwtm/thmwwtm.github.io.git
 	branch = main
+[submodule "themes/hugo-PaperMod"]
+	path = themes/hugo-PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod
