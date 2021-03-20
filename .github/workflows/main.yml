@@ -28,8 +28,12 @@ jobs:
       - uses: actions/checkout@v2
 
       # Get theme, old output
-      - name: Get Theme
-        run: git submodule update --init --recursive
+      - name: Get submodules
+        run: |
+          git submodule update --init --recursive
+          cd public
+          git pull origin master
+          cd ..
 
       # Update secrets
       - name: Update config
@@ -60,5 +64,5 @@ jobs:
           cd public
           git add .
           git commit -m "$msg"
-          git push
+          git push origin master
             
