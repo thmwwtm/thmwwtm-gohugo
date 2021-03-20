@@ -53,7 +53,7 @@ jobs:
       - name: Build
         run: hugo
 
-      - name: Update public and publish
+      - name: Update public
         run: |
           git config --global user.name github-actions[bot]
           git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
@@ -62,7 +62,15 @@ jobs:
           cd public
           git add .
           git commit -m "$msg"
-          git push origin main
+      
+      - name: Publish changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          branch: main
+      
+      - name: Update published reference
+        run: |
           cd ..
           git add public
           msgparent=feat(publish): public updated on $(date)
