@@ -27,7 +27,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
-          ssh-key: ${{ secrets.SSH_KEY }}
+          token: ${{ secrets.GH_PAT }}
 
       # Get theme, old output
       - name: Get submodules
@@ -63,4 +63,8 @@ jobs:
           git add .
           git commit -m "$msg"
           git push origin main
+          cd ..
+          git add public
+          msgparent=feat(publish): public updated on $(date)
+          git commit -m "$msgparent"
             

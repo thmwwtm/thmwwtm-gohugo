@@ -1,6 +1,6 @@
 [submodule "public"]
 	path = public
-	url = git@github.com:thmwwtm/thmwwtm.github.io.git
+	url = https://github.com/thmwwtm/thmwwtm.github.io.git
 	branch = main
 [submodule "themes/hugo-PaperMod"]
 	path = themes/hugo-PaperMod
