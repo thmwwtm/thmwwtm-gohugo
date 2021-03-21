@@ -53,26 +53,59 @@ jobs:
       - name: Build
         run: hugo
 
+      - name: Copy last commit msg
+        run: |
+          git log -1 --pretty=%B >> public/cmsg.txt
+
+      - name: Publish output
+        uses: actions/upload-artifact@v2
+        with:
+          name: publish
+          path: public
+    
+  publish:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - uses: actions/checkout@v2
+        with: 
+          token: ${{ secrets.GH_PAT }}
+          repository: 'thmwwtm/thmwwtm.github.io'
+
+      - name: Get build output
+        uses: actions/download-artifact@v2
+        with:
+          name: publish          
+
       - name: Update public
         run: |
           git config --global user.name github-actions[bot]
           git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
-          msg=$(git log -1 --pretty=%B)
+          msg=$(cat cmsg.txt)
           echo $msg
-          cd public
+          rm cmsg.txt
           git add .
           git commit -m "$msg"
+          git push origin test
+
+  # post-publish:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         token: ${{ secrets.GH_PAT }}
       
-      - name: Publish changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GH_PAT }}
-          branch: main
-      
-      - name: Update published reference
-        run: |
-          cd ..
-          git add public
-          msgparent=feat(publish): public updated on $(date)
-          git commit -m "$msgparent"
+  #     - name: Update published reference
+  #       run: |
+  #         git submodule update --init
+  #         cd public
+  #         git pull origin main
+  #         cd ..
+  #         git add public
+  #         msgparent=feat(publish): public updated on $(date)
+  #         git commit -m "$msgparent"
             
