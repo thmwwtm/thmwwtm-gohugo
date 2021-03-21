@@ -53,9 +53,10 @@ jobs:
       - name: Build
         run: hugo
 
-      - name: Copy last commit msg
+      - name: Prepare artifact
         run: |
           git log -1 --pretty=%B >> public/cmsg.txt
+          rm -rf public/.git
 
       - name: Publish output
         uses: actions/upload-artifact@v1
