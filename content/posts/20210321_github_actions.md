@@ -49,7 +49,6 @@ The example had the
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
 ```
-
 lines what was perfect, I wanted to run it manually to test the steps.
 
 So I did, and it failed. Would have been a surprise if not.
