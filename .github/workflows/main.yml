@@ -89,25 +89,26 @@ jobs:
           rm cmsg.txt
           git add .
           git commit -m "$msg"
-          git push origin test
+          git push origin main
 
-  # post-publish:
-  #   needs: publish
-  #   runs-on: ubuntu-latest
+  post-publish:
+    needs: publish
+    runs-on: ubuntu-latest
 
-  #   steps:
+    steps:
 
-  #     - uses: actions/checkout@v2
-  #       with:
-  #         token: ${{ secrets.GH_PAT }}
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_PAT }}
       
-  #     - name: Update published reference
-  #       run: |
-  #         git submodule update --init
-  #         cd public
-  #         git pull origin main
-  #         cd ..
-  #         git add public
-  #         msgparent=feat(publish): public updated on $(date)
-  #         git commit -m "$msgparent"
+      - name: Update published reference
+        run: |
+          git submodule update --init
+          cd public
+          git pull origin main
+          cd ..
+          git add public
+          msgparent=feat(publish): public updated on $(date)
+          git commit -m "$msgparent"
+          git push origin master
             
