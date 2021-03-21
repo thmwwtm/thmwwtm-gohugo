@@ -68,8 +68,8 @@ jobs:
   publish:
     needs: build
     runs-on: ubuntu-latest
-    # if nothing to commit 
-    continue-on-error: true
+    # if nothing to commit that is also returning an error
+    #continue-on-error: true
 
     steps:
       
