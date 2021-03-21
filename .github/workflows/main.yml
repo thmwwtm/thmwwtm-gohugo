@@ -58,6 +58,7 @@ jobs:
           git log -1 --pretty=%B >> public/cmsg.txt
           rm -rf public/.git
 
+      # Upload public folder for next step
       - name: Publish output
         uses: actions/upload-artifact@v1
         with:
@@ -67,19 +68,24 @@ jobs:
   publish:
     needs: build
     runs-on: ubuntu-latest
+    # if nothing to commit 
+    continue-on-error: true
 
     steps:
       
+      # Use GH pages repo not the current one
       - uses: actions/checkout@v2
         with: 
           token: ${{ secrets.GH_PAT }}
           repository: 'thmwwtm/thmwwtm.github.io'
 
+      # Get public from 'build' step
       - name: Get build output
         uses: actions/download-artifact@v2
         with:
           name: public      
 
+      # Push to GH repo and remove saved last commit msg
       - name: Update public
         run: |
           git config --global user.name github-actions[bot]
@@ -103,6 +109,8 @@ jobs:
       
       - name: Update published reference
         run: |
+          git config --global user.name github-actions[bot]
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
           git submodule update --init
           cd public
           git pull --ff-only
