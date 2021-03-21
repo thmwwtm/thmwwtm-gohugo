@@ -7,9 +7,9 @@ on:
   # Triggers the workflow on push events but only for the master branch and content folder
   push:
     branches: 
-      - master
+    - master
     paths:
-      - content/**
+    - content/**
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
