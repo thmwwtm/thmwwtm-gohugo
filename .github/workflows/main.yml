@@ -113,7 +113,7 @@ jobs:
           git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
           git submodule update --init
           cd public
-          git pull --ff-only
+          git pull origin main --ff-only
           cd ..
           git add public
           msgparent=feat(publish): public updated on $(date)
