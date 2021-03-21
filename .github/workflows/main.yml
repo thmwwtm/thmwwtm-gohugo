@@ -116,7 +116,7 @@ jobs:
           git pull origin main --ff-only
           cd ..
           git add public
-          msgparent=feat(publish): public updated on $(date)
+          msgparent='feat(publish): public updated on' $(date +"%Y. %m. %d. at %T")
           git commit -m "$msgparent"
           git push origin master
             
