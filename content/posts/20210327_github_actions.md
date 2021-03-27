@@ -1,13 +1,13 @@
 ---
 title: "Github actions from zero to this blog"
-date: 2021-03-21T09:02:00+02:00
+date: 2021-03-27T09:02:00+02:00
 weight: 1
 # aliases: ["/first"]
 tags: ["development", "software", "github", "tech", "CI/CD", "automation"]
 author: "Me"
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 disableShare: true
 comments: false
