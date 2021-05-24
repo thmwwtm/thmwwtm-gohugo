@@ -17,23 +17,9 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
-  skip_ci:
-    runs-on: ubuntu-latest
-    # Map the output to the job's outputs
-    outputs:
-      canSkip: ${{ steps.check.outputs.canSkip }}
-    steps:
-      - id: check
-        uses: Legorooj/skip-ci@main
-
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Wait for the skip_ci job to run
-    needs: skip_ci
-    # And only run the build if canSkip isn't 'true'.
-    if: ${{ needs.skip_ci.outputs.canSkip != 'true' }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -79,8 +65,8 @@ jobs:
           path: public
     
   publish:
-    needs: [build, skip_ci]
-    if: ${{ needs.skip_ci.outputs.canSkip != 'true' }}
+    needs: [build]
+    
     runs-on: ubuntu-latest
     # if nothing to commit that is also returning an error
     #continue-on-error: true
@@ -112,8 +98,7 @@ jobs:
           git push origin main
 
   post-publish:
-    needs: [ publish, skip_ci]
-    if: ${{ needs.skip_ci.outputs.canSkip != 'true' }}
+    needs: [publish]
     runs-on: ubuntu-latest
 
     steps:
