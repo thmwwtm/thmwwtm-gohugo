@@ -2,6 +2,6 @@
 
 # thmwwtm-gohugo
 
-Simple blog project using `gohugo`.
+Simple (and finished) blog project using `gohugo`.
 Subject of experimentation and learning.
 
